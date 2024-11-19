@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
     Rigidbody2D rb;
+    SpriteRenderer flipPlayer;
     
     public Vector2 moveDir;
 
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        flipPlayer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -47,7 +50,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Move()
-    {
+    {  
         rb.velocity = new Vector2 (moveDir.x * moveSpeed, moveDir.y * moveSpeed);
+
+        if (moveDir.x < 0)
+        {
+            flipPlayer.flipX = true;
+        }
+        else
+        {
+            flipPlayer.flipX = false;
+        }
     }
 }

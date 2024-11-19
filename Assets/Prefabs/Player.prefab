@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 0198457e0df23cc40bd7bfe2851ff55d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1160356261127867848, guid: 0198457e0df23cc40bd7bfe2851ff55d, type: 3}
       propertyPath: m_Controller
       value: 
@@ -162,4 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  moveDir: {x: 0, y: 0}
   joystick: {fileID: 0}
