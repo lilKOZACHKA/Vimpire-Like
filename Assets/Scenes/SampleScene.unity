@@ -10892,6 +10892,52 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &300298486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300298487}
+  - component: {fileID: 300298488}
+  m_Layer: 0
+  m_Name: KnifeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300298487
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300298486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128636933}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &300298488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300298486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cb0831e4569a54cb5527ac7639024f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: d026c0fa6aec6a84aafb5e3b61f1480a, type: 2}
+  spreadAngle: 15
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -11375,6 +11421,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15119171, y: 25.11705}
   m_EdgeRadius: 0
+--- !u!1 &1629916677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7193535830908574929, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+  m_PrefabInstance: {fileID: 9136102944613191591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1629916681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629916677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4488a5fa56d0242984e9886269c537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 0}
 --- !u!1 &1672784868
 GameObject:
   m_ObjectHideFlags: 0
@@ -11733,9 +11797,72 @@ PrefabInstance:
       objectReference: {fileID: 1764175046}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5796599101469974193, guid: af8da65c77d504647b341751cc034be9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 300298487}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af8da65c77d504647b341751cc034be9, type: 3}
+--- !u!1001 &9136102944613191591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947228743932125053, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193535830908574929, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      propertyPath: m_Name
+      value: ZombieToast_5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7193535830908574929, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1629916681}
+  m_SourcePrefab: {fileID: 100100000, guid: 8ca12f59873c6db44b5bc6effb4645f2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11746,3 +11873,4 @@ SceneRoots:
   - {fileID: 1743486935}
   - {fileID: 1318287739}
   - {fileID: 700810485}
+  - {fileID: 9136102944613191591}
