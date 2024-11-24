@@ -49,7 +49,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void Update()
     {
-        //if (!isLocalPlayer) return;
+        if (!isLocalPlayer) return;
         float moveX = joystick.Horizontal;
         float moveY = joystick.Vertical;
         
@@ -90,7 +90,8 @@ public class PlayerMovement : NetworkBehaviour
    
 
     void Move()
-    {  
+    {
+        if (!isLocalPlayer) return;
         rb.velocity = new Vector2 (moveDir.x * moveSpeed, moveDir.y * moveSpeed);
 
         if (moveDir.x < 0)

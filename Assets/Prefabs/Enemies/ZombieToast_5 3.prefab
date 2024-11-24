@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6695483094135704653}
   - component: {fileID: 779245939954828016}
   m_Layer: 0
-  m_Name: ZombieToast_5
+  m_Name: ZombieToast_5 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  _assetId: 4237735381
+  _assetId: 2726302358
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
