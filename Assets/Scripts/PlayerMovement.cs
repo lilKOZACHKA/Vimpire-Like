@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Mirror;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public float moveSpeed;
     Rigidbody2D rb;
@@ -29,20 +30,14 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         flipPlayer = GetComponent<SpriteRenderer>();
         lastMovedVector = new Vector2(1, 0f);
+        Canvas canvas = FindObjectOfType<Canvas>();
+        joystick = canvas.transform.Find("Fixed Joystick").GetComponent<Joystick>();
+
     }
 
     void Update()
     {
-        InputManagement();
-    }
-
-    void FixedUpdate()
-    {
-        Move();
-    }
-
-    void InputManagement()
-    {
+        if (!isLocalPlayer) return;
         float moveX = joystick.Horizontal;
         float moveY = joystick.Vertical;
         
@@ -73,6 +68,13 @@ public class PlayerMovement : MonoBehaviour
             lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector);
         }
     }
+
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+   
 
     void Move()
     {  

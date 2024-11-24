@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    Transform player;
+    public Transform player;
 
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<PlayerMovement>().transform; 
     }
 
     void Update()
