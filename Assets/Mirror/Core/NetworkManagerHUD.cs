@@ -11,6 +11,7 @@ namespace Mirror
     {
         NetworkManager manager;
 
+        private GUIStyle buttonStyle;
         public int offsetX;
         public int offsetY;
 
@@ -20,7 +21,9 @@ namespace Mirror
         }
 
         void OnGUI()
-        {
+        {   
+
+       
             // If this width is changed, also change offsetX in GUIConsole::OnGUI
             int width = 300;
 
@@ -33,7 +36,7 @@ namespace Mirror
 
             if (NetworkClient.isConnected && !NetworkClient.ready)
             {
-                if (GUILayout.Button("Client Ready"))
+                if (GUILayout.Button("Client Ready",buttonStyle,GUILayout.Height(60)))
                 {
                     // client ready
                     NetworkClient.Ready();
@@ -53,24 +56,24 @@ namespace Mirror
             {
 #if UNITY_WEBGL
                 // cant be a server in webgl build
-                if (GUILayout.Button("Single Player"))
+                if (GUILayout.Button("Single Player",GUILayout.Height(60)))
                 {
                     NetworkServer.dontListen = true;
                     manager.StartHost();
                 }
 #else
                 // Server + Client
-                if (GUILayout.Button("Host (Server + Client)"))
+                if (GUILayout.Button("Host (Server + Client)", GUILayout.Height(60)))
                     manager.StartHost();
 #endif
 
                 // Client + IP (+ PORT)
-                GUILayout.BeginHorizontal();
+                
 
-                if (GUILayout.Button("Client"))
+                if (GUILayout.Button("Client", GUILayout.Height(60)))
                     manager.StartClient();
 
-                manager.networkAddress = GUILayout.TextField(manager.networkAddress);
+                manager.networkAddress = GUILayout.TextField(manager.networkAddress, GUILayout.Width(450), GUILayout.Height(60));;
                 // only show a port field if we have a port transport
                 // we can't have "IP:PORT" in the address field since this only
                 // works for IPV4:PORT.
@@ -79,26 +82,26 @@ namespace Mirror
                 if (Transport.active is PortTransport portTransport)
                 {
                     // use TryParse in case someone tries to enter non-numeric characters
-                    if (ushort.TryParse(GUILayout.TextField(portTransport.Port.ToString()), out ushort port))
+                    if (ushort.TryParse(GUILayout.TextField(portTransport.Port.ToString(), GUILayout.Width(450), GUILayout.Height(60)), out ushort port))
                         portTransport.Port = port;
                 }
 
-                GUILayout.EndHorizontal();
+                
 
                 // Server Only
 #if UNITY_WEBGL
                 // cant be a server in webgl build
                 GUILayout.Box("( WebGL cannot be server )");
 #else
-                if (GUILayout.Button("Server Only"))
-                    manager.StartServer();
+                // if (GUILayout.Button("Server Only",GUILayout.Height(60)))
+                //     manager.StartServer();
 #endif
             }
             else
             {
                 // Connecting
                 GUILayout.Label($"Connecting to {manager.networkAddress}..");
-                if (GUILayout.Button("Cancel Connection Attempt"))
+                if (GUILayout.Button("Cancel Connection Attempt",GUILayout.Height(60)))
                     manager.StopClient();
             }
         }
@@ -132,15 +135,15 @@ namespace Mirror
             {
                 GUILayout.BeginHorizontal();
 #if UNITY_WEBGL
-                if (GUILayout.Button("Stop Single Player"))
+                if (GUILayout.Button("Stop Single Player",GUILayout.Height(60)))
                     manager.StopHost();
 #else
                 // stop host if host mode
-                if (GUILayout.Button("Stop Host"))
+                if (GUILayout.Button("Stop Host",GUILayout.Height(60)))
                     manager.StopHost();
 
                 // stop client if host mode, leaving server up
-                if (GUILayout.Button("Stop Client"))
+                if (GUILayout.Button("Stop Client",GUILayout.Height(60)))
                     manager.StopClient();
 #endif
                 GUILayout.EndHorizontal();
@@ -148,13 +151,13 @@ namespace Mirror
             else if (NetworkClient.isConnected)
             {
                 // stop client if client-only
-                if (GUILayout.Button("Stop Client"))
+                if (GUILayout.Button("Stop Client",GUILayout.Height(60)))
                     manager.StopClient();
             }
             else if (NetworkServer.active)
             {
                 // stop server if server-only
-                if (GUILayout.Button("Stop Server"))
+                if (GUILayout.Button("Stop Server",GUILayout.Height(60)))
                     manager.StopServer();
             }
         }
