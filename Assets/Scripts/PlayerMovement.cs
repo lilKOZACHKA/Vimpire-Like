@@ -19,10 +19,22 @@ public class PlayerMovement : NetworkBehaviour
 
     SpriteRenderer flipPlayer;
    
+    private Camera mainCam;
 
     public Joystick joystick;
 
     private Animator anim;
+
+
+    private void Awake()
+    {
+        mainCam = Camera.main;
+    }
+    private void CameraMovement()
+    {
+        mainCam.transform.localPosition = new Vector3(transform.position.x, transform.position.y, -100f);
+        transform.position = Vector2.MoveTowards(transform.position, mainCam.transform.localPosition, Time.deltaTime);
+    }
 
     void Start()
     {
@@ -67,10 +79,11 @@ public class PlayerMovement : NetworkBehaviour
         {
             lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector);
         }
+        CameraMovement();
     }
 
     void FixedUpdate()
-    {
+    {   
         Move();
     }
 
@@ -78,6 +91,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void Move()
     {  
+        if (!isLocalPlayer) return;
         rb.velocity = new Vector2 (moveDir.x * moveSpeed, moveDir.y * moveSpeed);
 
         if (moveDir.x < 0)
