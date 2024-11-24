@@ -30,6 +30,6 @@ public class PropRandomizer : MonoBehaviour
         {
             int rand = Random.Range(0, eminemsPrefabs.Count);
             Instantiate(eminemsPrefabs[rand], sp.transform.position, Quaternion.identity);
-        }
+        }      
     }
 }
