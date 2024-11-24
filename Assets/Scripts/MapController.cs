@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class MapController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class MapController : MonoBehaviour
     Vector3 noTerrainPosition;
     public LayerMask terrainMask;
     public GameObject currentChunk;
-    PlayerMovement pm;
+    public PlayerMovement pm;
 
     [Header("Optimization")]
     public List<GameObject> spawnedChunks;
@@ -20,15 +21,18 @@ public class MapController : MonoBehaviour
     float optimizerCooldown;
     public float optimizerCooldownDur;
 
-    void Start()
-    {
-        pm = FindObjectOfType<PlayerMovement>();
-    }
-
     void Update()
     {
-        ChunkChecker();
-        ChunkOptimizer();
+        if (player != null)
+        {
+            ChunkChecker();
+            ChunkOptimizer();
+        }
+        else
+        {
+            player = GameObject.FindWithTag("Player");
+            pm = FindObjectOfType<PlayerMovement>();
+        }   
     }
 
     void ChunkChecker()

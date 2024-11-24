@@ -132,6 +132,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1586834252066564493, guid: 6e3723d98f78cfc49a96858e118b6e98, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 6745357207735432916, guid: af8da65c77d504647b341751cc034be9, type: 3}
+    - target: {fileID: 1586834252066564493, guid: 6e3723d98f78cfc49a96858e118b6e98, type: 3}
       propertyPath: autoCreatePlayer
       value: 1
       objectReference: {fileID: 0}

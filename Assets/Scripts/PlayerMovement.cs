@@ -12,7 +12,7 @@ public class PlayerMovement : NetworkBehaviour
     public float lastHorizontalVector;
     [HideInInspector]
     public float lastVerticalVector;
-    [HideInInspector]
+
     public Vector2 moveDir;
     [HideInInspector]
     public Vector2 lastMovedVector;
@@ -49,7 +49,7 @@ public class PlayerMovement : NetworkBehaviour
 
     void Update()
     {
-        if (!isLocalPlayer) return;
+        //if (!isLocalPlayer) return;
         float moveX = joystick.Horizontal;
         float moveY = joystick.Vertical;
         
@@ -91,14 +91,14 @@ public class PlayerMovement : NetworkBehaviour
 
     void Move()
     {  
-        if (!isLocalPlayer) return;
         rb.velocity = new Vector2 (moveDir.x * moveSpeed, moveDir.y * moveSpeed);
 
         if (moveDir.x < 0)
         {
             flipPlayer.flipX = true;
         }
-        else
+        
+        if (moveDir.x > 0)
         {
             flipPlayer.flipX = false;
         }
